@@ -1,0 +1,19 @@
+FROM balenalib/raspberrypi3-ubuntu-python:3.7.3-build
+LABEL maintainer="Dawn Ho <dawn.ho@gmail.com>"
+
+RUN apt-get update && apt-get install -yq \
+  build-essential \
+  cmake \
+  git
+
+WORKDIR /usr/src/app
+
+COPY ./requirements.txt /requirements.txt
+
+RUN pip install -r /requirements.txt
+
+COPY . ./
+
+ENV INITSYSTEM on
+
+CMD ["bash", "setup-uart.sh"]

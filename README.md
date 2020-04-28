@@ -1,2 +1,2 @@
-# bb-ethernet
-Beaglebone Green Wireless + ENC28J60
+# bb-connectivity
+Beaglebone Green Wireless + peripherals

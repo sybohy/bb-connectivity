@@ -1,0 +1,5 @@
+# adafruit-circuitpython-amg88xx
+Adafruit-Blinka
+adafruit-circuitpython-busdevice
+adafruit-circuitpython-register
+adafruit-circuitpython-mlx90640
