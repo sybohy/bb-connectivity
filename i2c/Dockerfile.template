@@ -10,7 +10,6 @@ RUN apt-get install -yq \
   make \
   python3-rpi.gpio \
   python3-smbus \
-  python3-spidev \
   python3-sysv-ipc && \
   apt-get clean && rm -rf /var/lib/apt/lists/*
 
@@ -24,3 +23,5 @@ COPY . ./
 ENV INITSYSTEM on
 
 CMD ["bash", "scripts/setup-i2c.sh"]
+
+# python3-spidev \

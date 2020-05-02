@@ -1,2 +1,4 @@
-Adafruit_BBIO
 pyserial
+pyserial_asyncio
+zigpy
+zigpy_xbee

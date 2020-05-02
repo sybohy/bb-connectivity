@@ -1,19 +1,31 @@
-FROM balenalib/raspberrypi3-ubuntu-python:3.7.3-build
+FROM balenalib/%%BALENA_MACHINE_NAME%%-debian-python:3.7
 LABEL maintainer="Dawn Ho <dawn.ho@gmail.com>"
 
-RUN apt-get update && apt-get install -yq \
+RUN apt-get update && apt-get upgrade && \
+  apt-get install -yq \
+  apt-utils \
   build-essential \
-  cmake \
-  git
+  git && \
+  apt-get clean && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /usr/src/
+
+RUN pip3.7 install --upgrade setuptools
+RUN pip3.7 install git+git://github.com/hello-seam/beaglebone-io.git
+# RUN cd beaglebone-io/
+# RUN python3.7 setup.py install
 
 WORKDIR /usr/src/app
 
 COPY ./requirements.txt /requirements.txt
 
-RUN pip install -r /requirements.txt
+RUN pip3.7 install -r /requirements.txt
 
 COPY . ./
 
 ENV INITSYSTEM on
 
-CMD ["bash", "setup-uart.sh"]
+CMD ["bash", "setup-spi.sh"]
+
+#   python3-spi && \
+#   python3-setuptools \
