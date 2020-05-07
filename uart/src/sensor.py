@@ -1,6 +1,6 @@
 #!/usr/bin/env python3.7
 
-# import Adafruit_BBIO.UART as UART
+import Adafruit_BBIO.UART as UART
 import os
 import serial
 import time
@@ -8,7 +8,7 @@ import time
 ser = serial.Serial()
 ser.baudrate = 115200
 ser.port = "/dev/ttyO2"
-# UART.setup("UART2")
+UART.setup("UART2")
 
 while(True):
     time.sleep(15)
