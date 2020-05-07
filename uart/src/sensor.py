@@ -2,8 +2,12 @@
 
 # import Adafruit_BBIO.UART as UART
 import os
+import serial
 import time
 
+ser = serial.Serial()
+ser.baudrate = 115200
+ser.port = "/dev/ttyO2"
 # UART.setup("UART2")
 
 while(True):

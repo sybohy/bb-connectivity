@@ -1,8 +1,4 @@
 version: '2.1'
-volumes:
-  resin-i2c:
-  resin-spi:
-  resin-uart:
 services:
   # i2c:
   #   build: ./i2c
@@ -17,33 +13,22 @@ services:
   #     io.balena.features.dbus: '1'
   #     io.balena.features.firmware: '1'
   #     io.balena.features.kernel-modules: '1'
-  spi:
-    build: ./spi
-    privileged: true
-    restart: always
-    devices:
-      - "/dev/spidev1.0:/dev/spidev1.0"
-    volumes:
-      - 'resin-spi:/data'
-    labels:
-      io.balena.features.dbus: '1'
-      io.balena.features.firmware: '1'
-      io.balena.features.kernel-modules: '1'
+  # spi:
+  #   build: ./spi
+  #   privileged: true
+  #   restart: always
+  #   devices:
+  #     - "/dev/spidev1.0:/dev/spidev1.0"
+  #   labels:
+  #     io.balena.features.dbus: '1'
+  #     io.balena.features.firmware: '1'
+  #     io.balena.features.kernel-modules: '1'
   uart:
     build: ./uart
+    environment:
+      - UDEV=1
     privileged: true
     restart: always
-    devices:
-      - "/dev/ttyO0:/dev/ttyO0"
-      - "/dev/ttyS0:/dev/ttyS0"
-      - "/dev/ttyO1:/dev/ttyO1"
-      - "/dev/ttyS1:/dev/ttyS1"
-      - "/dev/ttyO2:/dev/ttyO2"
-      - "/dev/ttyS2:/dev/ttyS2"
-      - "/dev/ttyO3:/dev/ttyO3"
-      - "/dev/ttyS3:/dev/ttyS3"
-    volumes:
-      - 'resin-uart:/data'
     labels:
       io.balena.features.dbus: '1'
       io.balena.features.firmware: '1'

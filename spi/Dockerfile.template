@@ -5,17 +5,14 @@ RUN apt-get update && apt-get upgrade && \
   apt-get install -yq \
   apt-utils \
   build-essential \
-  git && \
+  git \
+  python3-spi && \
   apt-get clean && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /usr/src/
+WORKDIR /usr/src/app
 
 RUN pip3.7 install --upgrade setuptools
 RUN pip3.7 install git+git://github.com/hello-seam/beaglebone-io.git
-# RUN cd beaglebone-io/
-# RUN python3.7 setup.py install
-
-WORKDIR /usr/src/app
 
 COPY ./requirements.txt /requirements.txt
 

@@ -8,6 +8,7 @@ RUN apt-get update && apt-get upgrade && \
   git \
   python3-serial \
   python3-smbus \
+  screen \
   setserial \
   udev && \
   apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -23,9 +24,4 @@ RUN pip3.7 install -r /requirements.txt
 
 COPY . ./
 
-ENV INITSYSTEM on
-
 CMD ["bash", "setup-uart.sh"]
-
-#   python3-spi && \
-#  python3-setuptools \

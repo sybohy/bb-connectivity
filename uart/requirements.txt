@@ -1,4 +1,5 @@
 pyserial
 pyserial_asyncio
+digi-xbee
 zigpy
 zigpy_xbee
