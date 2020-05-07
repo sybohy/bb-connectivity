@@ -2,9 +2,9 @@
 Beaglebone Green Wireless + peripherals
 
 ## Reading
-[Balena Getting Started](https://www.balena.io/docs/learn/getting-started/beaglebone-green-wifi/python/)
-[Docker](https://docker-curriculum.com/)
-[Docker Compose](https://www.baeldung.com/docker-compose)
+* [Balena Getting Started](https://www.balena.io/docs/learn/getting-started/beaglebone-green-wifi/python/)
+* [Docker](https://docker-curriculum.com/)
+* [Docker Compose](https://www.baeldung.com/docker-compose)
 
 ### Generating your Dev Environment:
 1. Clone this repository to your computer.
