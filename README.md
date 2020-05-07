@@ -45,6 +45,19 @@ $ balena push {name of your Application}
 
 9. Burn the image onto an SD card. I like to use [Etcher](https://etcher.io/) for that.
 
+10. In the 'flash-boot' partition, open up the file `uEnv.txt_internal`, and insert the following lines:
+```
+enable_uboot_overlays=1
+uboot_overlay_addr0=/boot/overlays/BB-I2C1-00A0.dtbo
+uboot_overlay_addr1=/boot/overlays/BB-I2C2-00A0.dtbo
+uboot_overlay_addr2=/boot/overlays/BB-SPIDEV0-00A0.dtbo
+uboot_overlay_addr3=/boot/overlays/BB-SPIDEV1-00A0.dtbo
+uboot_overlay_addr4=/boot/overlays/BB-UART1-00A0.dtbo
+uboot_overlay_addr5=/boot/overlays/BB-UART2-00A0.dtbo
+uboot_overlay_addr6=/boot/overlays/BB-UART3-00A0.dtbo
+uboot_overlay_addr7=/boot/overlays/BB-UART4-00A0.dtbo
+```
+
 10. Make sure the power is not plugged in on your Beaglebone Green Wireless.
 
 11. Plug in your SD card into your Beaglebone Green Wireless:
@@ -55,7 +68,9 @@ $ balena push {name of your Application}
 
 ![BBG flashing](https://i.imgur.com/Ek3ebMY.jpg)
 
-13. To connect your Pi to internet directly via an ethernet cable, follow [this guide](https://docs.google.com/document/d/1izqZt8YVsLykwC0sS3_QU7IvVkBN85xsrnbxHEeQqzA/edit). You'll need this step if you skipped Step 10 (the `balena preload ...` step).
+13. Wait until the blue lights stop flashing (it'll take a minute), Remove the SD Card, then plug the power back in.
+
+14. You're live!
 
 ### Pushing your Code Changes
 Once you have a development pi set up (according to the above instructions), you can push code changes like so:
@@ -80,5 +95,5 @@ You might want to install `curl` or `vim` on your development image, so that you
 
 ## Breakdown of each Docker container
 - [./i2c](./i2c): i2c set up (don't use, copied from raspberry pi)
-- [./spi](./spi): SPI, also untested, don't use
+- [./spi](./spi): SPI, a bit untested
 - [./uart](./uart): Look at me! Uart!
