@@ -70,7 +70,7 @@ uboot_overlay_addr7=/boot/overlays/BB-UART4-00A0.dtbo
 
 13. Wait until the blue lights stop flashing (it'll take a minute), Remove the SD Card, then plug the power back in.
 
-14. You're live!
+14. You're live! Connect your bb to internet using the usb ethernet adapter.
 
 ### Pushing your Code Changes
 Once you have a development pi set up (according to the above instructions), you can push code changes like so:
