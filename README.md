@@ -45,7 +45,7 @@ $ balena push {name of your Application}
 
 9. Burn the image onto an SD card. I like to use [Etcher](https://etcher.io/) for that.
 
-10. In the 'flash-boot' partition, open up the file `uEnv.txt_internal`, and insert the following lines:
+10. In the 'flash-boot' partition (on mac, `/Volumes/flash-boot/`, open up the file `uEnv.txt_internal`, and insert the following lines:
 ```
 enable_uboot_overlays=1
 uboot_overlay_addr0=/boot/overlays/BB-I2C1-00A0.dtbo
@@ -71,6 +71,14 @@ uboot_overlay_addr7=/boot/overlays/BB-UART4-00A0.dtbo
 13. Wait until the blue lights stop flashing (it'll take a minute), Remove the SD Card, then plug the power back in.
 
 14. You're live! Connect your bb to internet using the usb ethernet adapter.
+
+15. Check that all the devices are correctly mounted using our `uEnv.txt` edits:
+
+`ls /dev/*`
+
+16. If some of the devices are missing, go visually inspect the mounted `uEnv.txt` file to make your edits are there: 
+
+`cat /mnt/boot/uEnv.txt`
 
 ### Pushing your Code Changes
 Once you have a development pi set up (according to the above instructions), you can push code changes like so:
